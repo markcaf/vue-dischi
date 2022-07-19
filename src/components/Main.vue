@@ -21,167 +21,6 @@
                 </div>
             </div>
 
-            <div class="col-2 album-card text-center">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
-                </div>
-
-                <div class="title">
-                    One more car, one more raider
-                </div>
-                
-                <div class="author">
-                    Eric Clapton
-                </div>
-
-                <div class="year">
-                    2022
-                </div>
-            </div>
-
-            <div class="col-2 album-card text-center">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
-                </div>
-
-                <div class="title">
-                    One more car, one more raider
-                </div>
-                
-                <div class="author">
-                    Eric Clapton
-                </div>
-
-                <div class="year">
-                    2022
-                </div>
-            </div>
-
-            <div class="col-2 album-card text-center">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
-                </div>
-
-                <div class="title">
-                    One more car, one more raider
-                </div>
-                
-                <div class="author">
-                    Eric Clapton
-                </div>
-
-                <div class="year">
-                    2022
-                </div>
-            </div>
-
-            <div class="col-2 album-card text-center">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
-                </div>
-
-                <div class="title">
-                    One more car, one more raider
-                </div>
-                
-                <div class="author">
-                    Eric Clapton
-                </div>
-
-                <div class="year">
-                    2022
-                </div>
-            </div>
-
-            <div class="col-2 album-card text-center">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
-                </div>
-
-                <div class="title">
-                    One more car, one more raider
-                </div>
-                
-                <div class="author">
-                    Eric Clapton
-                </div>
-
-                <div class="year">
-                    2022
-                </div>
-            </div>
-
-            <div class="col-2 album-card text-center">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
-                </div>
-
-                <div class="title">
-                    One more car, one more raider
-                </div>
-                
-                <div class="author">
-                    Eric Clapton
-                </div>
-
-                <div class="year">
-                    2022
-                </div>
-            </div>
-
-            <div class="col-2 album-card text-center">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
-                </div>
-
-                <div class="title">
-                    One more car, one more raider
-                </div>
-                
-                <div class="author">
-                    Eric Clapton
-                </div>
-
-                <div class="year">
-                    2022
-                </div>
-            </div>
-
-            <div class="col-2 album-card text-center">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
-                </div>
-
-                <div class="title">
-                    One more car, one more raider
-                </div>
-                
-                <div class="author">
-                    Eric Clapton
-                </div>
-
-                <div class="year">
-                    2022
-                </div>
-            </div>
-
-            <div class="col-2 album-card text-center">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
-                </div>
-
-                <div class="title">
-                    One more car, one more raider
-                </div>
-                
-                <div class="author">
-                    Eric Clapton
-                </div>
-
-                <div class="year">
-                    2022
-                </div>
-            </div>
         </div>
     </div>
 
@@ -189,8 +28,23 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
+    data: function(){
+        return{
 
+        }
+    },
+
+    methods:{
+        getAlbums(){
+            // recupero gli album tramite l'API
+        }
+    },
+
+    created(){
+        this.getAlbums();
+    }
 }
 </script>
 
