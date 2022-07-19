@@ -3,21 +3,21 @@
     <div class="container py-5">
         <div class="row d-flex flex-wrap gap-4 justify-content-center">
 
-            <div class="col-2 album-card text-center">
+            <div class="col-2 album-card text-center" v-for="(album, index) in musicAlbum" :key="index">
                 <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/97/Eric_Clapton_OMCOMR.jpg" alt="album cover">
+                    <img :src="album.poster" alt="album.title">
                 </div>
 
                 <div class="title">
-                    One more car, one more raider
+                    {{ album.title }}
                 </div>
                 
                 <div class="author">
-                    Eric Clapton
+                    {{ album.author }}
                 </div>
 
                 <div class="year">
-                    2022
+                    {{ album.year }}
                 </div>
             </div>
 
@@ -32,18 +32,25 @@ import axios from 'axios';
 export default {
     data: function(){
         return{
-
+            musicAlbum: [],
         }
     },
 
     methods:{
-        getAlbums(){
-            // recupero gli album tramite l'API
+        getMusicAlbums(){
+            axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+            .then((result) => {
+                this.musicAlbum = result.data.response;
+                console.log(this.musicAlbum);
+            })
+            .catch((error) => {
+                console.warn(error);
+            })
         }
     },
 
     created(){
-        this.getAlbums();
+        this.getMusicAlbums();
     }
 }
 </script>
