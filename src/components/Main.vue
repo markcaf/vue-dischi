@@ -1,15 +1,20 @@
 <template>
   <main>
     <div class="container py-5">
-        <div class="row d-flex flex-wrap gap-4 justify-content-center">
+        <div class="row justify-content-center">
+            <selectGenre 
+            v-for="(info, index) in albumData" :key="index"
+            :data="info.data"
+            :contents="info.content"/>
+        </div>
 
+        <div class="row d-flex flex-wrap gap-4 justify-content-center">
             <albumCard v-for="(album, index) in musicAlbum" :key="index"
             :imgUrl="album.poster"
             :title="album.title"
             :author="album.author"
             :year="album.year"
             />
-
         </div>
     </div>
 
@@ -19,16 +24,21 @@
 <script>
 import axios from 'axios';
 import albumCard from './albumCard.vue';
+import selectGenre from './selectGenre.vue';
 
 export default {
     name: "Main",
     components:{
+        selectGenre,
         albumCard,
     },
 
     data: function(){
         return{
             musicAlbum: [],
+            genres: [],
+            albumData: [],
+
         }
     },
 
@@ -38,7 +48,28 @@ export default {
             .then((result) => {
                 this.musicAlbum = result.data.response;
                 console.log(this.musicAlbum);
+
+                // Recupero i dati sul genere dalla variabile musicAlbum, popolata dalla chiamati API
+                for (let i=0; i < this.musicAlbum.length ; i++){
+                    // Inserisco i dati in un array denominato genres
+                    this.genres.push(result.data.response[i].genre);
+                }
+                console.log(this.genres);
+
+                // Rimuovo i duplicati dell'array
+                this.genres = [... new Set(this.genres)];
+                console.log(this.genres);
+
+                // Creato un array di oggetti con i dati dei generi
+                this.albumData = [
+                    {
+                        data: "genres", 
+                        content: this.genres,
+                    }
+                ];
+                console.log(this.albumData);
             })
+            
             .catch((error) => {
                 console.warn(error);
             })
