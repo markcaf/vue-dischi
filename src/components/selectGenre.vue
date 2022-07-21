@@ -1,11 +1,19 @@
 <template>
-  <div class="col-4 mb-4">
-    <select class="form-select" aria-label="Select by genre">
+  <div class="col-4 mb-4 text-center">
+    <select class="form-select" aria-label="Select by genre" v-model="selectedElement">
         <option selected>Filtra in base al genere</option>
         <option class="text-uppercase" v-for="(content, index) in contents" :key="index" :value="index">
           {{ content }}
         </option>
     </select>
+
+    <button class="btn btn-primary text-white mt-2">
+        <a class="text-white" href="#" @click="$emit('filter', contents[selectedElement]), selectedElement = ''">Filtra</a>
+    </button>
+
+    <button class="btn btn-primary text-white mt-2 ms-2">
+        <a class="text-white" href="#" @click="$emit('filter', contents[selectedElement])">Reset</a>
+    </button>
   </div>
 </template>
 
@@ -20,12 +28,18 @@ export default {
 
     data: function() {
         return {
-            
+            selectedElement: "",
         }
     },
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+    button{
+        a{
+            text-decoration: none;
+        }
+    }
 
 </style>
