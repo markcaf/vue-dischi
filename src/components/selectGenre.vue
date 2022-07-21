@@ -1,16 +1,11 @@
 <template>
   <div class="col-4 mb-4 text-center">
-    <select class="form-select" aria-label="Select by genre" v-model="selectedElement">
-        <option selected>Filtra in base al genere</option>
-        <option class="text-uppercase" v-for="(content, index) in contents" :key="index" :value="index">
+    <select class="form-select" aria-label="Select by genre" v-model="selectedElement" @click="$emit('filter', contents[selectedElement])">
+        <option selected value="">Mostra tutti i generi</option>
+        <option v-for="(content, index) in contents" :key="index" :value="index">
           {{ content }}
         </option>
     </select>
-
-    <button class="btn btn-primary text-white mt-2" @click="$emit('filter', contents[selectedElement])">
-        <a class="text-white" href="#">Filtra per genere</a>
-    </button>
-
   </div>
 </template>
 
