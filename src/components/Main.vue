@@ -2,7 +2,7 @@
   <main>
     <div class="container py-5">
         <div class="row justify-content-center">
-            <selectGenre 
+            <selectGenre @filter="getMusicAlbums"
             v-for="(info, index) in albumData" :key="index"
             :data="info.data"
             :contents="info.content"/>
@@ -38,12 +38,11 @@ export default {
             musicAlbum: [],
             genres: [],
             albumData: [],
-
         }
     },
 
     methods:{
-        getMusicAlbums(){
+        getMusicAlbums(elementToFilter){
             axios.get('https://flynn.boolean.careers/exercises/api/array/music')
             .then((result) => {
                 this.musicAlbum = result.data.response;
@@ -68,6 +67,15 @@ export default {
                     }
                 ];
                 console.log(this.albumData);
+
+                // Condizione sull'argomento per filtrare i risultati
+                // L'argomento passato sarà il valore del v-model 'selectedElement' nel figlio, ovvero l'opzione scelta nella select
+                if (elementToFilter == "") {
+                        this.musicAlbum = response.data.response;
+                    } else {
+                        const filteredElement = this.musicAlbum.filter((album) => album.genre.toLowerCase() == elementToFilter.toLowerCase());
+                        this.musicAlbum = filteredElement;
+                    }
             })
             
             .catch((error) => {
