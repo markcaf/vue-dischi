@@ -93,6 +93,7 @@ export default {
 <style lang="scss" scoped>
     main{
         background-color: #1e2d3b;
+        height: 900px;
 
         .container{
             max-width: 1000px;
