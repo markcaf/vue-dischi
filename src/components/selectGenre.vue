@@ -7,12 +7,12 @@
         </option>
     </select>
 
-    <button class="btn btn-primary text-white mt-2">
-        <a class="text-white" href="#" @click="$emit('filter', contents[selectedElement]), selectedElement = ''">Filtra</a>
+    <button class="btn btn-primary text-white mt-2" @click="$emit('filter', contents[selectedElement]), selectedElement = ''">
+        <a class="text-white" href="#">Filtra</a>
     </button>
 
-    <button class="btn btn-primary text-white mt-2 ms-2">
-        <a class="text-white" href="#" @click="$emit('filter', contents[selectedElement])">Reset</a>
+    <button class="btn btn-primary text-white mt-2 ms-2" @click="$emit('filter', contents[selectedElement]), selectedElement = ''">
+        <a class="text-white" href="#">Reset</a>
     </button>
   </div>
 </template>
